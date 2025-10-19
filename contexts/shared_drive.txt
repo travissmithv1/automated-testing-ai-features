@@ -1,0 +1,42 @@
+Shared Drive Access
+
+The company shared drive contains important documents, templates, and resources for your team.
+
+Accessing the Shared Drive:
+
+Windows:
+1. Open File Explorer
+2. Click on "This PC"
+3. Click "Map Network Drive" in the toolbar
+4. Choose drive letter "S:"
+5. Enter path: \\fileserver\shared
+6. Check "Reconnect at sign-in"
+7. Enter your employee ID and password when prompted
+
+Mac:
+1. Open Finder
+2. Press Command+K
+3. Enter: smb://fileserver/shared
+4. Click Connect
+5. Enter your employee ID and password when prompted
+
+Important Folders:
+- /Templates - Document templates for reports, presentations, etc.
+- /Policies - Company policies and procedures
+- /Team - Your team's shared workspace
+- /Training - Training materials and resources
+
+Permissions:
+- You have read access to all company-wide folders
+- You have read/write access to your team folder
+- You cannot delete files from shared folders - contact IT if needed
+
+File Naming Convention:
+- Use format: YYYY-MM-DD_ProjectName_Description.ext
+- Example: 2025-01-15_OnboardingGuide_Draft.docx
+- Avoid special characters except underscore and hyphen
+
+If you cannot access the shared drive:
+- Verify you're connected to the company network or VPN
+- Make sure your account is fully activated (can take up to 24 hours after hire date)
+- Contact IT support if issues persist

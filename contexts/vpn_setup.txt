@@ -1,0 +1,56 @@
+VPN Setup Instructions
+
+The company VPN (Virtual Private Network) allows you to securely access company resources when working remotely.
+
+VPN Software Installation:
+
+Windows:
+1. Download Cisco AnyConnect from the IT Portal: https://it.company.com/vpn
+2. Run the installer
+3. Follow the installation wizard
+4. Restart your computer when prompted
+
+Mac:
+1. Download Cisco AnyConnect from the IT Portal: https://it.company.com/vpn
+2. Open the .dmg file
+3. Double-click the installer package
+4. Follow the installation wizard
+5. Restart your computer when prompted
+
+Connecting to VPN:
+
+1. Open Cisco AnyConnect
+2. Enter VPN address: vpn.company.com
+3. Click Connect
+4. Enter your employee ID
+5. Enter your password
+6. Enter the 6-digit code from your authenticator app (Google Authenticator or Microsoft Authenticator)
+7. Click OK
+
+Setting Up Two-Factor Authentication:
+1. Download Google Authenticator or Microsoft Authenticator on your mobile device
+2. Log into the IT Portal: https://it.company.com
+3. Go to Security Settings
+4. Click "Setup 2FA"
+5. Scan the QR code with your authenticator app
+6. Enter the 6-digit code to verify
+7. Save your backup codes in a secure location
+
+When to Use VPN:
+- Working from home
+- Accessing shared drives remotely
+- Accessing company email from non-company devices
+- Any time you need to access internal company resources outside the office
+
+VPN is NOT required:
+- When physically in the office
+- For accessing public company website
+- For general internet browsing
+
+Troubleshooting:
+- If connection fails, verify your internet connection is working
+- Make sure you're entering the current 6-digit code (they expire every 30 seconds)
+- If you lost access to your authenticator app, contact IT support immediately
+- VPN may take up to 48 hours to activate for new employees
+
+For VPN support, contact IT helpdesk at x4357 or itsupport@company.com

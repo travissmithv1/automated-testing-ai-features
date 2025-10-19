@@ -1,0 +1,23 @@
+Computer Login Information
+
+To log into your company computer, you will need:
+
+1. Username: Your employee ID (found on your welcome email)
+2. Password: Temporary password sent in your welcome email
+
+First Time Login:
+- Enter your employee ID as the username
+- Enter the temporary password
+- You will be prompted to change your password on first login
+- Your new password must be at least 12 characters with uppercase, lowercase, numbers, and special characters
+
+If you forgot your employee ID:
+- Contact HR at hr@company.com
+- They can resend your welcome email with your employee ID
+
+Common Login Issues:
+- If your account is locked after multiple failed attempts, wait 30 minutes or contact IT support
+- Make sure Caps Lock is off when entering your password
+- The password is case-sensitive
+
+Your computer should be set up at your desk before your first day. If you don't see a computer at your workstation, please notify your manager immediately.
