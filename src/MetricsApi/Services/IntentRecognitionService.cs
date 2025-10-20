@@ -42,7 +42,7 @@ Answer:";
             System = new List<SystemMessage> { new SystemMessage(systemPrompt) }
         };
 
-        var response = await client.Messages.GetClaudeMessageAsync(parameters);
+        var response = await GetClaudeResponseWithRetry(client, parameters);
         var textContent = response.Content.FirstOrDefault() as TextContent;
         var answer = textContent?.Text ?? _redirectionMessage;
 
@@ -79,5 +79,24 @@ Answer:";
         };
 
         return slots;
+    }
+
+    private async Task<MessageResponse> GetClaudeResponseWithRetry(AnthropicClient client, MessageParameters parameters, int maxRetries = 3)
+    {
+        var retryDelays = new[] { 2000, 5000, 10000 };
+
+        for (int attempt = 0; attempt < maxRetries; attempt++)
+        {
+            try
+            {
+                return await client.Messages.GetClaudeMessageAsync(parameters);
+            }
+            catch (Exception ex) when ((ex.Message.Contains("Internal server error") || ex.Message.Contains("rate limit")) && attempt < maxRetries - 1)
+            {
+                await Task.Delay(retryDelays[attempt]);
+            }
+        }
+
+        return await client.Messages.GetClaudeMessageAsync(parameters);
     }
 }

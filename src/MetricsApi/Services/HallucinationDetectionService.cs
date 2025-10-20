@@ -44,10 +44,29 @@ If the response includes ANY facts not in the context: Answer 'Yes'";
             Temperature = 0.0m
         };
 
-        var verificationResponse = await client.Messages.GetClaudeMessageAsync(parameters);
+        var verificationResponse = await GetClaudeResponseWithRetry(client, parameters);
         var textContent = verificationResponse.Content.FirstOrDefault() as TextContent;
         var answer = textContent?.Text?.Trim() ?? "Yes";
 
         return answer.Equals("No", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private async Task<MessageResponse> GetClaudeResponseWithRetry(AnthropicClient client, MessageParameters parameters, int maxRetries = 3)
+    {
+        var retryDelays = new[] { 2000, 5000, 10000 };
+
+        for (int attempt = 0; attempt < maxRetries; attempt++)
+        {
+            try
+            {
+                return await client.Messages.GetClaudeMessageAsync(parameters);
+            }
+            catch (Exception ex) when ((ex.Message.Contains("Internal server error") || ex.Message.Contains("rate limit")) && attempt < maxRetries - 1)
+            {
+                await Task.Delay(retryDelays[attempt]);
+            }
+        }
+
+        return await client.Messages.GetClaudeMessageAsync(parameters);
     }
 }
