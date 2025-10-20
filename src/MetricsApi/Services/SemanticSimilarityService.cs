@@ -68,6 +68,7 @@ Similarity score:";
         {
             try
             {
+                await RateLimiter.WaitForSlot();
                 return await client.Messages.GetClaudeMessageAsync(parameters);
             }
             catch (Exception ex) when ((ex.Message.Contains("Internal server error") || ex.Message.Contains("rate limit")) && attempt < maxRetries - 1)
@@ -76,6 +77,7 @@ Similarity score:";
             }
         }
 
+        await RateLimiter.WaitForSlot();
         return await client.Messages.GetClaudeMessageAsync(parameters);
     }
 }

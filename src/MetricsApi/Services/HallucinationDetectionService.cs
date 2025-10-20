@@ -59,6 +59,7 @@ If the response includes ANY facts not in the context: Answer 'Yes'";
         {
             try
             {
+                await RateLimiter.WaitForSlot();
                 return await client.Messages.GetClaudeMessageAsync(parameters);
             }
             catch (Exception ex) when ((ex.Message.Contains("Internal server error") || ex.Message.Contains("rate limit")) && attempt < maxRetries - 1)
@@ -67,6 +68,7 @@ If the response includes ANY facts not in the context: Answer 'Yes'";
             }
         }
 
+        await RateLimiter.WaitForSlot();
         return await client.Messages.GetClaudeMessageAsync(parameters);
     }
 }
